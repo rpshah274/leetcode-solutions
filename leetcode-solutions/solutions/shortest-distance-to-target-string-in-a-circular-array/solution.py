@@ -1,0 +1,14 @@
+# Problem: Shortest Distance to Target String in a Circular Array
+# URL: https://leetcode.com/problems/shortest-distance-to-target-string-in-a-circular-array/
+# Language: python3
+
+class Solution:
+    def closestTarget(self, words: List[str], target: str, startIndex: int) -> int:
+        if target not in words:
+            return -1
+        n=len(words)
+        res=n
+        for i,word in enumerate(words):
+            if word==target:
+                res=min(res,abs(i-startIndex),n-abs(i-startIndex))
+        return res
